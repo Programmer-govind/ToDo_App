@@ -1,4 +1,3 @@
-// DOM Elements
 const taskInput = document.getElementById('task-input');
 const taskPriority = document.getElementById('task-priority');
 const addTaskButton = document.getElementById('add-task');
@@ -8,7 +7,7 @@ const filterAll = document.getElementById('filter-all');
 const filterCompleted = document.getElementById('filter-completed');
 const filterIncomplete = document.getElementById('filter-incomplete');
 
-// Event Listeners
+// adding eventt listeners
 addTaskButton.addEventListener('click', addTask);
 darkModeToggle.addEventListener('click', toggleDarkMode);
 filterAll.addEventListener('click', () => filterTasks('all'));
@@ -35,7 +34,7 @@ function addTask() {
         </div>
     `;
 
-    // Add event listeners for buttons
+    // Adding event listeners for buttons for each task event
     taskItem.querySelector('.task-complete').addEventListener('change', () => toggleTaskCompletion(taskItem));
     taskItem.querySelector('.edit-task').addEventListener('click', () => editTask(taskItem));
     taskItem.querySelector('.delete-task').addEventListener('click', () => deleteTask(taskItem));
@@ -63,8 +62,8 @@ function toggleTaskCompletion(taskItem) {
 
 function editTask(taskItem) {
     const taskSpan = taskItem.querySelector('span');
-    const originalText = taskSpan.textContent.split(' (')[0]; // Extract task text without priority
-    const originalPriority = taskSpan.textContent.match(/\((.*?)\)/)[1]; // Extract priority
+    const originalText = taskSpan.textContent.split(' (')[0];
+    const originalPriority = taskSpan.textContent.match(/\((.*?)\)/)[1];
 
     const inputField = document.createElement('input');
     inputField.type = 'text';
@@ -99,6 +98,7 @@ function editTask(taskItem) {
         filterTasks('all');
     });
 
+    // cancel button functionality
     const cancelButton = document.createElement('button');
     cancelButton.textContent = 'Cancel';
     cancelButton.addEventListener('click', () => {
@@ -112,15 +112,19 @@ function editTask(taskItem) {
     taskItem.querySelector('div').appendChild(cancelButton);
 }
 
+// delete task functionality
+
 function deleteTask(taskItem) {
     taskList.removeChild(taskItem);
     saveTasks();
 }
 
+// Dark Mode functionality
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
 }
 
+// Filter tasks functionality
 function filterTasks(filter) {
     const tasks = taskList.children;
     for (let task of tasks) {
@@ -137,6 +141,7 @@ function filterTasks(filter) {
     }
 }
 
+// saving tasks
 function saveTasks() {
     const tasks = [];
     for (let task of taskList.children) {
@@ -148,6 +153,7 @@ function saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+// loading tasks from local storage
 function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     for (let task of tasks) {
@@ -170,5 +176,5 @@ function loadTasks() {
     }
 }
 
-// Initialize
+// Initialization
 loadTasks();
