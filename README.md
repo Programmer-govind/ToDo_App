@@ -1,6 +1,6 @@
 # ToDo_App 
 
-#Live link : https://gautam-govind-to-do-app.netlify.app
+# Live link : https://gautam-govind-to-do-app.netlify.app
 Developed To Do App during my Internship at PrepStat Using HTML, Css and JavaScript. 
 
 An intuitive ToDo App to help you manage your daily tasks efficiently. Built with simplicity and productivity in mind, this application provides a seamless way to organize your day.
@@ -53,7 +53,7 @@ An intuitive ToDo App to help you manage your daily tasks efficiently. Built wit
 ## Screenshots
 
 ### Home Page
-![Home Page]((https://github.com/user-attachments/assets/01fe7219-39e0-43e2-bd9c-a0c3e41284fa)
+![Home Page](https://github.com/user-attachments/assets/01fe7219-39e0-43e2-bd9c-a0c3e41284fa)
 
 ---
 
